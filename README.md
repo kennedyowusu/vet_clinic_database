@@ -91,6 +91,6 @@ Thanks to Microverse for giving me the opportunity to create such a project
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE) licensed.
+This project is [MIT](https://github.com/kennedyowusu/vet_clinic_database/blob/develop/README.md) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
