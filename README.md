@@ -43,6 +43,7 @@ This repository includes files with plain SQL that can be used to recreate a dat
 
 ```sh
   cd my-folder
+  git clone https://github.com/kennedyowusu/vet_clinic_database.git
   git clone https://github.com/kenendyowusu/vet_clinic_database.git
 ```
 - To use this repo to your local computer make sure you have installed [POSTGRESQL](https://www.postgresql.org/)
