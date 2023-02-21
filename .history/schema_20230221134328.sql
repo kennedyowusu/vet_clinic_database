@@ -8,3 +8,9 @@ CREATE TABLE animals (
     neutered BOOLEAN,
     weight_kg Decimal
 );
+
+CREATE TABLE animals (
+    id NOT NULL PRIMARY KEY,
+    name  VARCHAR(100) NOT NULL,
+    
+)

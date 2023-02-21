@@ -8,3 +8,7 @@ CREATE TABLE animals (
     neutered BOOLEAN,
     weight_kg Decimal
 );
+
+CREATE TABLE animals (
+    
+)

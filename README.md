@@ -61,7 +61,7 @@ This repository includes files with plain SQL that can be used to recreate a dat
 
 - GitHub: [kennedyowusu](https://github.com/kennedyowusu)
 - Twitter: [@_iamkobby](https://twitter.com/@_iamkobby)
-- LinkedIn: [kenendyowusu](https://linkedin.com/in/kenendyowusu)
+- LinkedIn: [kennedyowusu](https://linkedin.com/in/kennedyowusu)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
