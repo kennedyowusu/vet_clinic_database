@@ -48,3 +48,34 @@ VALUES ('Sam Smith', 34),
 
 INSERT INTO species (name)
 VALUES ('Pokemon'), ('Digimon');
+
+
+UPDATE animals
+SET species_id = 
+  CASE 
+    WHEN name LIKE '%mon' THEN (SELECT id FROM species WHERE name = 'Digimon') 
+    ELSE (SELECT id FROM species WHERE name = 'Pokemon') 
+  END;
+
+
+ALTER TABLE animals
+DROP COLUMN species;
+
+ALTER TABLE animals
+ADD COLUMN species_id INTEGER REFERENCES species(id);
+
+ALTER TABLE animals
+ADD COLUMN owner_id INTEGER REFERENCES owners(id);
+
+UPDATE animals
+SET species_id = (CASE WHEN name LIKE '%mon' THEN 2 ELSE 1 END);
+
+UPDATE animals
+SET owner_id = (CASE
+       WHEN name = 'Agumon' THEN 1
+       WHEN name IN ('Gabumon', 'Pikachu') THEN 2
+       WHEN name IN ('Devimon', 'Plantmon') THEN 3
+       WHEN name IN ('Charmander', 'Squirtle', 'Blossom') THEN 4
+       WHEN name IN ('Angemon', 'Boarmon') THEN 5
+       ELSE NULL
+   END);
