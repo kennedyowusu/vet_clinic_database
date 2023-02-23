@@ -1,13 +1,17 @@
-/* Database schema to keep the structure of entire database. */
+-- DAY ONE TASK STARTS HERE
 
 CREATE TABLE animals (
-    id NOT NULL PRIMARY KEY,
-    name  VARCHAR(30) NOT NULL,
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
     date_of_birth DATE,
-    escape_attempts INT,
+    escape_attempts INTEGER,
     neutered BOOLEAN,
-    weight_kg Decimal
+    weight_kg DECIMAL
 );
 
-/* Add a column with the name species and of type string to the animals table. */
-ALTER TABLE animals ADD COLUMN species VARCHAR(30);
+-- DAY ONE TASK ENDS HERE
+
+
+-- DAY TWO TASK STARTS HERE
+
+ALTER TABLE animals ADD COLUMN species VARCHAR(255);
