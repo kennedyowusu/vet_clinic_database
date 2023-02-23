@@ -35,3 +35,59 @@ INSERT INTO animals (name, date_of_birth, escape_attempts, neutered, weight_kg, 
 ('Ditto', '2022-05-14', 4, true, 22, 'Unknown');
 
 -- DAY TWO TASK ENDS HERE
+
+-- DAY THREE TASK STARTS HERE
+
+INSERT INTO owners (full_name, age)
+VALUES ('Sam Smith', 34),
+('Jennifer Orwell', 19),
+('Bob', 45),
+('Melody Pond', 77),
+('Dean Winchester', 14),
+('Jodie Whittaker', 38);
+
+INSERT INTO species (name)
+VALUES ('Pokemon'), ('Digimon');
+
+
+-- Set the species_id based on the animal name
+UPDATE animals
+SET species_id = (
+  SELECT id FROM species WHERE name = 'Digimon'
+)
+WHERE name LIKE '%mon';
+
+UPDATE animals
+SET species_id = (
+  SELECT id FROM species WHERE name = 'Pokemon'
+)
+WHERE species_id IS NULL;
+
+-- Set the owner_id based on the animal name
+UPDATE animals AS a
+SET owner_id = o.id
+FROM owners AS o
+WHERE a.name = 'Agumon' AND o.full_name = 'Sam Smith';
+
+UPDATE animals AS a
+SET owner_id = o.id
+FROM owners AS o
+WHERE a.name IN ('Gabumon', 'Pikachu') AND o.full_name = 'Jennifer Orwell';
+
+UPDATE animals AS a
+SET owner_id = o.id
+FROM owners AS o
+WHERE a.name IN ('Devimon', 'Plantmon') AND o.full_name = 'Bob';
+
+UPDATE animals AS a
+SET owner_id = o.id
+FROM owners AS o
+WHERE a.name IN ('Charmander', 'Squirtle', 'Blossom') AND o.full_name = 'Melody Pond';
+
+UPDATE animals AS a
+SET owner_id = o.id
+FROM owners AS o
+WHERE a.name IN ('Angemon', 'Boarmon') AND o.full_name = 'Dean Winchester';
+
+
+-- DAY TWO TASK ENDS HERE
