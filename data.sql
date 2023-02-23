@@ -79,3 +79,5 @@ SET owner_id = (CASE
        WHEN name IN ('Angemon', 'Boarmon') THEN 5
        ELSE NULL
    END);
+
+-- DAY TWO TASK ENDS HERE
