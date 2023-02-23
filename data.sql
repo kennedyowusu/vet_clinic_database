@@ -50,34 +50,44 @@ INSERT INTO species (name)
 VALUES ('Pokemon'), ('Digimon');
 
 
+-- Set the species_id based on the animal name
 UPDATE animals
-SET species_id = 
-  CASE 
-    WHEN name LIKE '%mon' THEN (SELECT id FROM species WHERE name = 'Digimon') 
-    ELSE (SELECT id FROM species WHERE name = 'Pokemon') 
-  END;
-
-
-ALTER TABLE animals
-DROP COLUMN species;
-
-ALTER TABLE animals
-ADD COLUMN species_id INTEGER REFERENCES species(id);
-
-ALTER TABLE animals
-ADD COLUMN owner_id INTEGER REFERENCES owners(id);
+SET species_id = (
+  SELECT id FROM species WHERE name = 'Digimon'
+)
+WHERE name LIKE '%mon';
 
 UPDATE animals
-SET species_id = (CASE WHEN name LIKE '%mon' THEN 2 ELSE 1 END);
+SET species_id = (
+  SELECT id FROM species WHERE name = 'Pokemon'
+)
+WHERE species_id IS NULL;
 
-UPDATE animals
-SET owner_id = (CASE
-       WHEN name = 'Agumon' THEN 1
-       WHEN name IN ('Gabumon', 'Pikachu') THEN 2
-       WHEN name IN ('Devimon', 'Plantmon') THEN 3
-       WHEN name IN ('Charmander', 'Squirtle', 'Blossom') THEN 4
-       WHEN name IN ('Angemon', 'Boarmon') THEN 5
-       ELSE NULL
-   END);
+-- Set the owner_id based on the animal name
+UPDATE animals AS a
+SET owner_id = o.id
+FROM owners AS o
+WHERE a.name = 'Agumon' AND o.full_name = 'Sam Smith';
+
+UPDATE animals AS a
+SET owner_id = o.id
+FROM owners AS o
+WHERE a.name IN ('Gabumon', 'Pikachu') AND o.full_name = 'Jennifer Orwell';
+
+UPDATE animals AS a
+SET owner_id = o.id
+FROM owners AS o
+WHERE a.name IN ('Devimon', 'Plantmon') AND o.full_name = 'Bob';
+
+UPDATE animals AS a
+SET owner_id = o.id
+FROM owners AS o
+WHERE a.name IN ('Charmander', 'Squirtle', 'Blossom') AND o.full_name = 'Melody Pond';
+
+UPDATE animals AS a
+SET owner_id = o.id
+FROM owners AS o
+WHERE a.name IN ('Angemon', 'Boarmon') AND o.full_name = 'Dean Winchester';
+
 
 -- DAY TWO TASK ENDS HERE
