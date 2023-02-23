@@ -29,3 +29,14 @@ CREATE TABLE species (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL
 );
+
+CREATE TABLE animals (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    date_of_birth DATE,
+    escape_attempts INTEGER,
+    neutered BOOLEAN,
+    weight_kg DECIMAL,
+    species_id INTEGER REFERENCES species(id),
+    owner_id INTEGER REFERENCES owners(id)
+);
