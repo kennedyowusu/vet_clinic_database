@@ -11,10 +11,11 @@ CREATE TABLE animals (
 
 -- DAY ONE TASK ENDS HERE
 
-
 -- DAY TWO TASK STARTS HERE
 
 ALTER TABLE animals ADD COLUMN species VARCHAR(255);
+
+-- DAY TWO TASK ENDS HERE
 
 
 -- DAY THREE TASK STARTS HERE
@@ -30,13 +31,14 @@ CREATE TABLE species (
     name VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE animals (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    date_of_birth DATE,
-    escape_attempts INTEGER,
-    neutered BOOLEAN,
-    weight_kg DECIMAL,
-    species_id INTEGER REFERENCES species(id),
-    owner_id INTEGER REFERENCES owners(id)
-);
+ALTER TABLE animals 
+    DROP COLUMN species;
+ALTER TABLE animals
+    ADD species_id INT;
+ALTER TABLE animals
+    ADD owner_id INT;
+
+ALTER TABLE animals 
+    ADD foreign key (species_id) references species(id);
+ALTER TABLE animals 
+    ADD foreign key (owner_id) references owners(id);

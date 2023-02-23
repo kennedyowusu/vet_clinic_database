@@ -82,6 +82,10 @@ FROM animals
 WHERE date_of_birth BETWEEN '1990-01-01' AND '2000-12-31'
 GROUP BY species;
 
+-- DAY TWO TASK ENDS HERE
+
+-- DAY THREE TASK STARTS HERE
+
 -- What animals belong to Melody Pond?
 SELECT animals.name
 FROM animals
@@ -127,5 +131,4 @@ ORDER BY num_animals DESC
 LIMIT 1;
 
 
-
--- DAY TWO TASK ENDS HERE
+-- DAY THREE TASK ENDS HERE
