@@ -67,7 +67,9 @@ This repository includes files with plain SQL that can be used to recreate a dat
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **Coming Soon**
+- [ ] Add Indexes to columns
+- [ ] Make Views of tables
+- [ ] Generate the ER diagrams of the tables
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
