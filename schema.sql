@@ -42,3 +42,28 @@ ALTER TABLE animals
     ADD foreign key (species_id) references species(id);
 ALTER TABLE animals 
     ADD foreign key (owner_id) references owners(id);
+
+    -- DAY FOUR TASK STARTS HERE
+
+CREATE TABLE vets (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    age INTEGER,
+    date_of_graduation DATE
+);
+
+CREATE TABLE specializations (
+    id SERIAL PRIMARY KEY,
+    vet_id INTEGER REFERENCES vets(id),
+    species_id INTEGER REFERENCES species(id),
+    UNIQUE(vet_id, species_id)
+);
+
+CREATE TABLE visits (
+    id SERIAL PRIMARY KEY,
+    animal_id INTEGER REFERENCES animals(id),
+    vet_id INTEGER REFERENCES vets(id),
+    visit_date DATE NOT NULL
+);
+
+-- DAY FOUR TASK ENDS HERE
